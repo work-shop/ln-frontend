@@ -28,6 +28,8 @@
     "isotope-layout": "^3.0.1",
     "jquery": "^3.0.0",
     "parse-json-response": "^1.0.1",
+    "request": "^2.79.0",
+    "request-promise": "^4.1.1",
     "slick-carousel": "^1.6.0",
     "swig": "^1.4.2",
     "util-extend": "^1.0.3",
@@ -37,6 +39,7 @@
     "url": "https://github.com/work-shop/ln.wsri.host/issues"
   },
   "homepage": "https://github.com/work-shop/ln.wsri.host#readme",
-  "local_api": "http://cms.ln.wsri.host/wp-json",
-  "remote_api": "http://cms.ln.wsri.host/wp-json"
+  "internal_api": "http://cms.ln.wsri.host/wp-json",
+  "external_api": "http://cms.ln.wsri.host/wp-json",
+  "socket": "ln.wsri.host.sock"
 }

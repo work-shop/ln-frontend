@@ -2,7 +2,7 @@
 
 var fs = require('fs');
 
-module.exports = function( app, socket, config, globals ) {
+module.exports = function( app, config, globals ) {
 
 	if ( config.development ) {
 
@@ -16,9 +16,9 @@ module.exports = function( app, socket, config, globals ) {
 
 		try {
 
-			if ( fs.statSync( socket ).isSocket() ) {
+			if ( fs.statSync( config.socket ).isSocket() ) {
 
-				fs.unlinkSync( socket );
+				fs.unlinkSync( config.socket );
 
 			}
 
@@ -30,13 +30,13 @@ module.exports = function( app, socket, config, globals ) {
 
         }
 
-		app.listen( socket, function() { fs.chmodSync( socket, 777 ); });
+		app.listen( config.socket, function() { fs.chmodSync( config.socket, 777 ); });
 
 		process.on('SIGINT', function( ) { process.exit(0); });
 
 		process.on('SIGTERM', function( ) { process.exit(0); });
 
-		process.on('exit', function( ) { fs.unlinkSync( socket ); });
+		process.on('exit', function( ) { fs.unlinkSync( config.socket ); });
 
 	}
 
