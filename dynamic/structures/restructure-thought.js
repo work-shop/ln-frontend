@@ -1,7 +1,7 @@
 "use strict";
 
+var baseStructure = require('./base-structure.js');
 var log = require('../logging/index.js')();
-var urlReplace = require('../utilities/resource-map.js');
 
 module.exports = function ( thought ) {
 
@@ -9,7 +9,8 @@ module.exports = function ( thought ) {
 
     try {
 
-        return {
+        return baseStructure( {
+
             title: {
                 short: thought.title.rendered,
                 long: thought.acf.longname
@@ -22,7 +23,8 @@ module.exports = function ( thought ) {
             metadata: thought.acf.metadata,
             overview: thought.acf.overview,
             sections: restructureSections( thought.acf.sections )
-        };
+
+        }, thought);
 
     } catch ( err ) {
 
