@@ -5,7 +5,7 @@ var base = require('./base-route.js')();
 var async = require('async');
 
 var restructureIndex = require('../structures/restructure-index.js');
-
+var mapResources = require('../utilities/resource-map.js');
 /**
  *
  *
@@ -51,7 +51,7 @@ module.exports = function( wp, config, globals ) {
 
             globals.log.error( err, 'route-index:error-handler');
 
-            res.render('404.html', {error_code: 500, description: err.message });
+            res.render('error.html', {error_code: 500, description: err.message });
 
         });
 
