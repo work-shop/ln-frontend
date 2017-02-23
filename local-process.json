@@ -7,7 +7,8 @@
                 "node_modules",
                 "static",
                 "templates",
-                "logs"
+                "logs",
+                "public"
             ],
             "env": {
                 "NODE_ENV": "development",

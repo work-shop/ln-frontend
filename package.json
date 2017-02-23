@@ -33,6 +33,7 @@
     "slick-carousel": "^1.6.0",
     "swig": "^1.4.2",
     "util-extend": "^1.0.3",
+    "webfontloader": "^1.6.27",
     "wpapi": "^0.11.0"
   },
   "bugs": {
@@ -41,5 +42,12 @@
   "homepage": "https://github.com/work-shop/ln.wsri.host#readme",
   "internal_api": "http://cms.ln.wsri.host/wp-json",
   "external_api": "http://cms.ln.wsri.host/wp-json",
-  "socket": "ln.wsri.host.sock"
+  "socket": "ln.wsri.host.sock",
+  "frontend": {
+      "border": {
+          "thick": "3px",
+          "thin": "1px",
+          "type": "solid"
+      }
+  }
 }
