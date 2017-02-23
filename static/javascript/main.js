@@ -7,23 +7,34 @@ var configuration = require('../../package.json').frontend;
 //get third party libraries
 var $ = require('jquery');
 var slick = require('slick-carousel');
+var WebFont = require('webfontloader');
 
 //assign jquery to the window, so it can be accessed in the console
 window.$ = $;
 
+WebFont.load({
+    google: {
+        families: ['Cabin:n4,i4,n7']
+    }
+});
+
 //get utilities
 // var jumpUtilities = require('./jump-utilities.js')($);
-// var loading = require('./loading.js')($);
+var loading = require('./loading.js')($);
+var pageColor = require('./page-color.js')($, configuration)
+var sectionShift = require('./section-shift.js')($, configuration)
 // var menuUtilities = require('./menu-utilities.js')($);
 // var slideshows = require('./slideshows.js')($, slick);
 // var modals = require('./modals.js')($);
 // var stickyNav = require('./sticky-nav.js')($);
 //
-// 
+//
 // //setup utilities
 // jumpUtilities.setupJumpEvents('.jump', 75, 567, 50, true);
 // jumpUtilities.setupJumpEvents('.spy-link', 134, 567, 50, false);
-// loading.setupLoading();
+ loading.setupLoading();
+ pageColor.setupPageColor();
+ sectionShift.setupSectionShifts();
 // slideshows.setupSlideshows();
 // menuUtilities.setupMenus();
 // modals.setupModals();
