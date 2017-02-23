@@ -1,15 +1,12 @@
 "use strict";
 
-var baseStructure = require('./base-structure.js');
 var log = require('../logging/index.js')();
 
 module.exports = function ( thought ) {
 
-
-
     try {
 
-        return baseStructure( {
+        return {
 
             title: {
                 short: thought.title.rendered,
@@ -22,9 +19,9 @@ module.exports = function ( thought ) {
             summary: thought.acf.summary,
             metadata: thought.acf.metadata,
             overview: thought.acf.overview,
-            sections: restructureSections( thought.acf.sections )
+            sections: thought.acf.sections
 
-        }, thought);
+        };
 
     } catch ( err ) {
 
@@ -36,9 +33,6 @@ module.exports = function ( thought ) {
 
 };
 
-function restructureSections( sections ) {
-    return sections;
-}
 
 function determineHeroStructure( acf ) {
     if ( acf.hero_type === "image" ) {
@@ -57,10 +51,32 @@ function determineHeroStructure( acf ) {
 
     } else if ( acf.hero_type === "video" ) {
 
-        return {
-            type: "video",
-            image: acf.hero_video
-        };
+        if ( acf.hero_video_type === "youtube" ) {
+
+            return {
+                type: "video",
+                image: acf.hero_video_file
+            };
+
+        } else if ( acf.hero_video_type === "vimeo" ) {
+
+            return {
+                type: "vimeo",
+                image: acf.hero_vimeo_video
+            };
+
+        } else if ( acf.hero_video_type === "file" ) {
+
+            return {
+                type: "youtube",
+                image: acf.hero_youtube_video
+            };
+
+        } else {
+
+            throw new Error('determineHeroStructure: Encountered an unrecognized hero video type: \'' + acf.hero_video_type + '\'');
+
+        }
 
     } else {
 
