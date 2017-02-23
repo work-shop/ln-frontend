@@ -1,7 +1,7 @@
 "use strict";
 
 var util = require('util');
-var base = require('./base-route.js')();
+var base = require('./generic/base-route.js')();
 var async = require('async');
 
 var restructureIndex = require('../structures/restructure-index.js');
@@ -62,31 +62,68 @@ module.exports = function( wp, config, globals ) {
          */
         function getThoughtGroupsForOptions( options, callback ) {
 
-            async.map((options.acf.thought_groups || []), function( group, next ){
+            async.parallel(
+                [
+                    function( pass ) {
 
-                async.map(group.thoughts, function( thought, next ) {
+                        async.map((options.acf.thought_groups || []), function( group, next ){
 
-                    wp.thoughts().id( thought.ID ).embed()
-                      .then( function( data ) { next( null, data ); })
-                      .catch( function( err ) { next( err ); });
+                            async.map(group.thoughts, function( thought, next ) {
 
-                }, function(err, result) {
+                                wp.thoughts().id( thought.ID ).embed()
 
-                    group.thoughts = result;
+                                  .then( function( data ) { next( null, data ); })
 
-                    next( err, group );
+                                  .catch( function( err ) { next( err ); });
 
-                });
+                            }, function(err, result) {
 
-            }, function( err, result ) {
 
-            // globals.log.log( util.inspect( result[0].thoughts ), 'get-thought-groups' );
+                                group.thoughts = result;
 
-                options.acf.thought_groups = result;
+                                next( err, group );
 
-                callback( err, options );
+                            });
 
-            });
+                        }, function( err, result ) {
+
+                        // globals.log.log( util.inspect( result[0].thoughts ), 'get-thought-groups' );
+
+                            pass( err, result );
+
+                        });
+
+                    },
+                    function( pass ) {
+
+                        async.map((options.acf.footer_thoughts || []), function( thought, next ){
+
+                            wp.thoughts().id( thought.ID ).embed()
+
+                              .then( function( data ) { next( null, data ); })
+
+                              .catch( function( err ) { next( err ); });
+
+                        }, function( err, result ) {
+
+                        // globals.log.log( util.inspect( result[0].thoughts ), 'get-thought-groups' );
+
+                            pass( err, result );
+
+                        });
+                    }
+                ],
+                function( err, result ) {
+
+                    if ( err ) { callback( err ); }
+
+                    options.acf.thought_groups = result[0];
+                    options.acf.footer_thoughts = result[1];
+
+                    callback( null, options );
+                }
+            );
+
         }
 
 };

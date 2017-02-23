@@ -112,7 +112,15 @@ module.exports = function BaseRoute() {
                                      */
                                     return function( parallelCB ) {
 
-                                        action.apply( null, previousData.concat( [ parallelCB, req, res ] ) );
+                                        try {
+
+                                            action.apply( null, previousData.concat( [ parallelCB, req, res ] ) );
+
+                                        } catch ( err ) {
+
+                                            parallelCB( err );
+
+                                        }
 
                                     };
 
@@ -122,7 +130,12 @@ module.exports = function BaseRoute() {
                                      * or a function, which we're assuming is an asynchronous processing step expecting the previousData, a callback
                                      * and possibily the request and response object. Panic.
                                      */
-                                     throw new Error("Route Syntax Error: a route was instantiated with a bad action – neither a function nor a (.then/.catch) promise.");
+
+                                     return function( parallelCB ) {
+
+                                         parallelCB( new Error("Route Syntax Error: a route was instantiated with a bad action – neither a function nor a (.then/.catch) promise.") );
+
+                                     };
 
                                 }
 

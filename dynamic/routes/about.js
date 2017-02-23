@@ -1,7 +1,7 @@
 "use strict";
 
 var util = require('util');
-var base = require('./base-route.js')();
+var base = require('./generic/base-route.js')();
 
 var restructureAbout = require('../structures/restructure-about.js');
 
@@ -29,7 +29,7 @@ module.exports = function( wp, config, globals ) {
 
             globals.log.log( 'Successful request to index.', 'route-index:success-handler');
 
-            res.render('about.html', restructureAbout( options ) );
+            res.render('about.html', restructureAbout( options, globals ) );
 
         },
         /**

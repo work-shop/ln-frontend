@@ -1,9 +1,9 @@
 "use strict";
 
 var util = require('util');
-var base = require('./base-route.js')();
+var base = require('./generic/base-route.js')();
 
-var restructureThought = require('../structures/restructure-thought.js');
+var restructureThoughtPage = require('../structures/restructure-thought-page.js');
 //var mapResources = require('../utilities/resource-map.js');
 /**
  *
@@ -33,7 +33,7 @@ module.exports = function( wp, config, globals ) {
             globals.log.log( 'Successful request to index.', 'route-index:success-handler');
             globals.log.log( util.inspect( thought ), 'route-index:requested-thought');
 
-            res.render('thought.html', restructureThought( thought ) );
+            res.render('thought.html', restructureThoughtPage( thought, options, globals ) );
 
         },
         /**
