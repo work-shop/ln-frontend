@@ -1,0 +1,38 @@
+{% macro section( insight, item ) %}
+    <section class="insight container">
+        {{ sectionHeader( insight, item ) }}
+        {{ sectionBody( insight, item ) }}
+    </section>
+{% endmacro %}
+
+
+{% macro sectionHeader( insight, item ) %}
+    <div class="row thick-border-page-color pt4 pb2 mb2">
+        <div class="col-sm-10 offset-sm-1 centered mb2">
+            <h2 class="insight-title page-color"><span class="border-bottom-page-color"> {{ insight.title }} </h2>
+        </div>
+        {% if insight.image %}
+            <div class="col-sm-6 offset-sm-1">
+                <p> {{ insight.introduction }} </p>
+            </div>
+            <div class="col-sm-5" data-shift-v="8" data-shift-h="4">
+                <img class="insight-image thin-border-page-color" src="{{ insight.image.sizes.story }}">
+                {% if insight.image.caption %}
+                <p class="caption">{{ insight.image.caption }}</p>
+                {% endif %}
+            </div>
+        {% else %}
+            <div class="col-sm-10 offset-sm-1">
+                <p> {{ insight.introduction }} </p>
+            </div>
+        {% endif %}
+    </div>
+{% endmacro %}
+
+{% macro sectionBody( insight, item ) %}
+    <div class="row thin-border-page-color pt4 pb2 mb2">
+        <div class="col-sm-10 offset-sm-1 wysiwyg">
+            {{ insight.content|safe }}
+        </div>
+    </div>
+{% endmacro %}

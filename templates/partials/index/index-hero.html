@@ -1,0 +1,39 @@
+
+{# hero.section
+   ------------
+
+ #}
+{% macro section( options ) %}
+    <section id="index-hero" class="pt6 pb6 hero {{ heroclass( item ) }} hero-section container-fluid" {{ heroimage( item ) }}>
+
+        {{ herodata( item ) }}
+
+        <div class="thought-hero-mask background-color-page-color"></div>
+
+        <div class="row mb3">
+            <div class="offset-sm-3 col-sm-6 centered">
+                <h1 class="thought-title"><span>{{ item.title.long }}<span></h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset-sm-3 col-sm-6 centered">
+                <p class="thought-summary h3">{{ item.summary }}</p>
+            </div>
+        </div>
+        <div class="row mb1">
+            <div class="offset-sm-3 col-sm-6 centered">
+                {{ heroIcon( item ) }}
+            </div>
+        </div>
+    </section>
+{% endmacro %}
+
+
+{# hero.herotype #}
+{% macro heroimage( item ) %}
+    {% if item.hero.type === "image" %}
+        style="background-image:url('{{ item.hero.image.sizes.hero }}')"
+    {% elseif item.hero.type === "video" %}
+        style="background-image:url('{{ item.hero.hero_cover_image.sizes.hero }}')"
+    {% endif %}
+{% endmacro %}

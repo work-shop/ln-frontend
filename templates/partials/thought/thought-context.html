@@ -1,0 +1,42 @@
+{% macro section( item ) %}
+    <section class="thought-context container" data-shift-v="-4">
+        <div class="pt4 pb4 row thick-border-page-color">
+
+            {{ metadata( item ) }}
+
+            {{ overview( item ) }}
+
+        </div>
+    </section>
+{% endmacro %}
+
+{% macro metadata( item ) %}
+    {% if item.metadata %}
+        <div class="col-sm-5 offset-sm-1">
+            <ul>
+            {% for pair in item.metadata %}
+                <li class="row">
+                    <div class="col-sm-3">
+                        <p class="thought-metadata-label page-color">{{ pair.label }}</p>
+                    </div>
+                    <div class="col-sm-9">
+                        <p class="thought-metadata-value">{{ pair.value }}</p>
+                    </div>
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+{% endmacro %}
+
+{% macro overview( item ) %}
+    {% if item.metadata %}
+        <div class="col-sm-5 thought-overview">
+            <p>{{ item.overview }}</p>
+        </div>
+    {% else %}
+        <div class="col-sm-10 offset-sm-1 thought-overview">
+            <p>{{ item.overview }}</p>
+        </div>
+    {% endif %}
+{% endmacro %}

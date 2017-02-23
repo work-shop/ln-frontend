@@ -1,10 +1,23 @@
 {% extends 'partials/base.html' %}
 
+{% import 'partials/thought/thought-hero.html' as h %}
+{% import 'partials/thought/thought-context.html' as c %}
+{% import 'partials/thought/thought-insight.html' as i %}
+
 {% block definitions %} {% endblock %}
 {% block body_classes %} page-thought {% endblock %}
+{% block body_color %} {{ item.color }} {% endblock %}
 
 
 {% block content %}
 
+    {{ h.section( item ) }}
+    {{ c.section( item ) }}
+
+    {% for object in item.sections %}
+
+        {{ i.section( object, item ) }}
+
+    {% endfor %}
 
 {% endblock %}

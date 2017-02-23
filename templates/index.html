@@ -1,10 +1,21 @@
 {% extends 'partials/base.html' %}
 
+{% import 'partials/index/index-hero.html' as hero %}
+
 {% block definitions %} {% endblock %}
 {% block body_classes %} page-home {% endblock %}
 
 
 {% block content %}
 
+    {{ hero.section( options ) }}
+
+    <script>
+
+        console.log({{ item|json|safe }});
+        console.log({{ options|json|safe }});
+        console.log({{ globals|json|safe }});
+
+    </script>
 
 {% endblock %}

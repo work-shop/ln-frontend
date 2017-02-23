@@ -1,3 +1,42 @@
-<footer id="footer" class="">
-
+<footer id="footer" class="container-fluid background-color-page-color pt4">
+    <div class="row email-callout pb2">
+        <div class="offset-sm-1 col-sm-10 centered">
+            <h5 class="white"><span class="underline uppercase">Interested In This?</span></h5>
+        </div>
+        <div class="offset-sm-1 col-sm-10 centered">
+            <a class="white" href="mailto:lawrence.neeley@olin.edu"><span class="italic">Email me something about who you are and why you're interested.</span></a>
+        </div>
+    </div>
+    <div class="row content-callout pb1">
+        <div class="col-sm-10 offset-sm-1"><hr /></div>
+    </div>
+    <div class="row content-callout pb4">
+        <div class="offset-sm-1 col-sm-3">
+            <address>
+                <ul class="about-page-list white">
+                    <li class="mb1"><h4 class="uppercase bold">Lawrence Neeley</h4></li>
+                    <li class="white">Olin Way</li>
+                    <li class="white">Needham, MA 02492</li>
+                    <li class="white">000.000.0000</li>
+                    <li class="white"><a class="white" href="mailto:lawrence.neeley@olin.edu">lawrence.neeley@olin.edu</a></li>
+                </ul>
+            </address>
+        </div>
+        <div class="col-sm-3">
+            <ul class="about-page-list white">
+                <li class="mb1"><h4 class="uppercase bold">About</h4></li>
+                <li class="white"><a class="white" href="/about">Mission Statement</a></li>
+                <li class="white"><a class="white" href="/about">The Teambuilding Project</a></li>
+                <li class="white"><a class="white" href="/about">About Lawrence</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-4">
+            <ul class="featured-thoughts-page-list white">
+                <li class="mb1"><h4 class="uppercase bold">Some Thoughts</h4></li>
+                {% for thought in options.footer_thoughts %}
+                    <li class="featured-thought white"><a class="white" href="{{ thought.link }}">{{ thought.post_title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 </footer>
