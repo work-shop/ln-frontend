@@ -2,7 +2,7 @@
 /* Variables */
 
 //brand colors
-$brand: darken(#0087CD,2%);
+$brand: #FF713A;
 
 //grays
 $ultra-light: #F5F5F5;
@@ -13,13 +13,14 @@ $medium: #828282;
 $medium-dark: darken(#58595B,5%);
 //$dark: #1F2C33;
 $dark: lighten(#1F2C33,0%);
+$white: white;
 
 //utility colors
 $error: #ff4a4a;
 
 //sizes
-$nav-height: 75px;
-$nav-height-mobile: 50px;
+$nav-height: 60px;
+$nav-height-mobile: 60px;
 $container-fluid-max-width: 1680px;
 $container-fluid-padding: 60px;
 $container-fluid-padding-mobile: 15px;
@@ -41,11 +42,11 @@ $lg: 1199px;
 $body-background-color: white;
 $yellow: #FDBA44;
 $yellow-darker: darken($yellow, 16%);
+$hero-opacity: .7;
 
-$font-main: 'Akkurat-Regular', Helvetica, Arial, Sans-serif;
-$font-italic: 'Akkurat-Italic', Helvetica, Arial, Sans-serif;
-$font-bold: 'Akkurat-Bold', Helvetica, Arial, Sans-serif;
-$font-bold-italic: 'Akkurat-Bold-Italic', Helvetica, Arial, Sans-serif;
-$font-light: 'Akkurat-Light', Helvetica, Arial, Sans-serif;
-$font-light-italic: 'Akkurat-Light-Italic', Helvetica, Arial, Sans-serif;
-
+$font-main: 'Cabin', Helvetica, Arial, Sans-serif;
+$font-italic: 'Cabin', Helvetica, Arial, Sans-serif;
+$font-bold: 'Cabin', Helvetica, Arial, Sans-serif;
+$font-bold-italic: 'Cabin', Helvetica, Arial, Sans-serif;
+$font-light: 'Cabin', Helvetica, Arial, Sans-serif;
+$font-light-italic: 'Cabin', Helvetica, Arial, Sans-serif;

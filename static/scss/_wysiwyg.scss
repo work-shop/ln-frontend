@@ -6,7 +6,7 @@
 	}
 
 	em>strong{
-		font-family: $font-bold-italic;
+		font-weight: 700;
 	}
 
 	a{
@@ -21,5 +21,29 @@
 	ol{
 		padding-left: 15px;
 	}
+
+    img[class*="align"],
+    img[class*="wp-image-"] {
+        height: auto; /* Make sure images with WordPress-added height and width >attributes are scaled correctly */
+    }
+
+    img.full-size {
+        max-width: 97.5%;
+        width: auto;
+    }
+
+    p {
+        padding-bottom:1em;
+    }
+
+    img, .wp-caption {
+        max-width: 100%;
+
+    }
+
+    .wp-caption-text {
+        color:$medium;
+        margin-bottom: 2em;
+    }
 
 }

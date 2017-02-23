@@ -7,7 +7,7 @@ body{
 }
 
 *{
-	font-family: $font-main;	
+	font-family: $font-main;
 }
 
 
@@ -40,19 +40,19 @@ h6,.h6{
 }
 
 p{
-	@include text-size($text-regular);	
+	@include text-size($text-regular);
 	margin-top: 0;
 }
 
 //formatting
 
 .bold,strong{
-	font-family: $font-bold;
+	font-weight: 700;
 	//font-weight: bold;
 }
 
 .italic,em{
-	font-family: $font-italic;
+	font-style: italic;
 	//font-style: italic;
 }
 
@@ -131,6 +131,9 @@ p{
 	color: $yellow-darker;
 }
 
+// thought titles
+
+
 
 //icons
 
@@ -141,11 +144,10 @@ p{
 		font-size: 24px;
 		line-height: 100%;
 		vertical-align: middle;
-		position: relative;	
+		position: relative;
 	}
 
 	&.large:before{
 		font-size: 72px;
 	}
 }
-

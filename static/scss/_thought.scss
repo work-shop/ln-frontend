@@ -1,0 +1,65 @@
+
+/* hero configuration */
+.hero {
+    position: relative;
+    z-index:0;
+}
+
+/* determines fill sizes for hero */
+.herotype-image {
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+/* This rule determines the dimensions and
+ * opacity for the hero mask. */
+.thought-hero-mask {
+    position: absolute;
+    height:100%;
+    width:100%;
+    top: 0px;
+    left: 0px;
+    opacity: $hero-opacity;
+
+}
+
+
+/* definition to support the proper formatting of
+ * title blocks on the thought page.  */
+.thought-title {
+    color: $white;
+    line-height: 1.4em;
+
+    /* to support underlining*/
+    span {
+        border-bottom: 3px solid $white;
+    }
+
+}
+
+/**
+ *
+ */
+.thought-context {
+    background-color: $white;
+}
+
+/* the summary text – */
+.thought-summary {
+    color: $ultra-light;
+}
+
+
+.thought-metadata-label {
+    text-transform: uppercase;
+}
+
+
+
+/**
+ *
+ */
+[data-shift] {
+    z-index:500;
+}

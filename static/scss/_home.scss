@@ -46,7 +46,7 @@
 			left: 50%;
 			text-align: center;
 			@include transform(translate(-50%,0));
-		}		
+		}
 
 		button{
 			border: 1px solid white;
@@ -56,20 +56,20 @@
 			@media screen and (max-width: $sm) {
 				width: 10px;
 				height: 10px;
-			}		
+			}
 		}
 
 		.slick-active{
 			button{
 				border: none;
-				background: $brand;		
+				background: $brand;
 				width: 13px;
-				height: 13px;	
+				height: 13px;
 
 				@media screen and (max-width: $sm) {
 					width: 9px;
 					height: 9px;
-				}											
+				}
 			}
 		}
 	}
@@ -80,7 +80,7 @@
 	position: relative;
 
 	.block-background{
-		background-position: center center;	
+		background-position: center center;
 
 		&:after{
 			background: linear-gradient(45deg, rgba(0,0,0,.2) 0%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 100%);
@@ -128,12 +128,12 @@
 		right: 80px;
 		bottom: auto;
 		top: 80px;
-		text-align: right;	
+		text-align: right;
 
 		@media screen and (max-width: $sm) {
 			right: 30px;
 			padding-right: 0;
-			padding-left: 30px;			
+			padding-left: 30px;
 		}
 
 	}
@@ -155,13 +155,13 @@
 
 	.slide-caption-ll{
 		left: 80px;
-		bottom: 80px;	
+		bottom: 80px;
 
 		@media screen and (max-width: $sm) {
 			left: 30px;
 			bottom: 140px;
-		}	
-	}			
+		}
+	}
 
 }
 
@@ -182,14 +182,14 @@
 		font-family: "modern_pictograms_proregular";
 		color: white;
 		font-size: 54px;
-		line-height: 47px;		
+		line-height: 47px;
 		margin-left: 7px;
 
 		@media screen and (max-width: $sm) {
 			font-size: 38px;
-			line-height: 28px;		
+			line-height: 28px;
 			margin-left: 3px;
-		}	
+		}
 	}
 
 	@media screen and (max-width: $sm) {
@@ -197,7 +197,7 @@
 		width: 24px;
 		height: 24px;
 		margin-left: -12px;
-	}	
+	}
 }
 
 
@@ -219,11 +219,11 @@
 
 	// 	.slick-dots{
 	// 		button{
-	// 			border: none;			
+	// 			border: none;
 	// 		}
 	// 		.slick-active{
 	// 			button{
-	// 				background: $yellow-darker;		
+	// 				background: $yellow-darker;
 	// 			}
 	// 		}
 	// 	}
@@ -242,7 +242,7 @@
 		.button{
 			float: none;
 		}
-	}	
+	}
 }
 
 
@@ -254,6 +254,6 @@
 		// .button-white{
 		// 	color: $dark;
 		// 	border-bottom-color: $dark;
-		// }		
+		// }
 	}
 }
