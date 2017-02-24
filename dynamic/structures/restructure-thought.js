@@ -42,10 +42,10 @@ function determineHeroStructure( acf ) {
             image: acf.hero_image
         };
 
-    } else if ( acf.hero_type === "gallery" ) {
+    } else if ( acf.hero_type === "images" ) {
 
         return {
-            type: "gallery",
+            type: "images",
             image: acf.hero_images
         };
 
