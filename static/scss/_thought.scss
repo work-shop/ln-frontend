@@ -76,7 +76,7 @@
 
 .hero-front{
     opacity: 1;
-    @include transition(opacity .25s, z-index 0s linear .25s);
+    @include transition(opacity .25s);
 }
 
 .hero-back{
@@ -168,8 +168,8 @@
 }
 
 
-
-.hero-open{
+//classes for when the hero is toggled to 'open'
+body.hero-open{
 
     .hero-front{
         opacity: 0;
