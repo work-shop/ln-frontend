@@ -21,10 +21,10 @@ WebFont.load({
 //get utilities
 // var jumpUtilities = require('./jump-utilities.js')($);
 var loading = require('./loading.js')($);
-var pageColor = require('./page-color.js')($, configuration)
-var sectionShift = require('./section-shift.js')($, configuration)
+var pageColor = require('./page-color.js')($, configuration);
+var sectionShift = require('./section-shift.js')($, configuration);
 // var menuUtilities = require('./menu-utilities.js')($);
-// var slideshows = require('./slideshows.js')($, slick);
+var slideshows = require('./slideshows.js')($, slick);
 // var modals = require('./modals.js')($);
 // var stickyNav = require('./sticky-nav.js')($);
 //
@@ -35,7 +35,7 @@ var sectionShift = require('./section-shift.js')($, configuration)
  loading.setupLoading();
  pageColor.setupPageColor();
  sectionShift.setupSectionShifts();
-// slideshows.setupSlideshows();
+slideshows.setupSlideshows();
 // menuUtilities.setupMenus();
 // modals.setupModals();
 //
@@ -64,10 +64,7 @@ var sectionShift = require('./section-shift.js')($, configuration)
 // }
 //
 //
-// if($('body').hasClass('page-project')){
-// 	//TEMPORARY
-// 	//var descriptionToggle = require('./description-toggle.js')($);
-// 	//descriptionToggle.setupDescriptionToggle();
-// 	var relatedProjects = require('./related-projects.js')($, configuration);
-// 	relatedProjects.initialize();
-// }
+if($('body').hasClass('page-thought')){
+	var heroToggle = require('./hero-toggle.js')($);
+	heroToggle.initialize();
+}

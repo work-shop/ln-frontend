@@ -13,7 +13,7 @@
 }
 
 /* This rule determines the dimensions and
- * opacity for the hero mask. */
+* opacity for the hero mask. */
 .thought-hero-mask {
     position: absolute;
     height:100%;
@@ -21,12 +21,11 @@
     top: 0px;
     left: 0px;
     opacity: $hero-opacity;
-
 }
 
 
 /* definition to support the proper formatting of
- * title blocks on the thought page.  */
+* title blocks on the thought page.  */
 .thought-title {
     color: $white;
     line-height: 1.4em;
@@ -38,11 +37,19 @@
 
 }
 
+.thought-icon{
+    span:before{
+        color: white;
+        font-size: 60px;
+    }
+}
+
 /**
- *
- */
+*
+*/
 .thought-context {
     background-color: $white;
+    @include transition(top .25s);
 }
 
 /* the summary text – */
@@ -56,10 +63,143 @@
 }
 
 
-
 /**
- *
- */
+*
+*/
 [data-shift] {
     z-index:500;
 }
+
+
+
+/* thought gallery */
+
+.hero-front{
+    opacity: 1;
+    @include transition(opacity .25s, z-index 0s linear .25s);
+}
+
+.hero-back{
+    @include transition(z-index 0s linear .25s);
+}
+
+.slick-thought{
+
+    height: inherit;
+
+    .slick-slider,.slick-list,.slick-track{
+        height: inherit;
+    }
+
+    .slide{
+        background-size: cover;
+        background-position: center center;
+        height: 100%;
+    }
+
+    .slick-arrow,.slick-dots{
+        display: none !important;
+    }
+
+    .slick-arrow{
+        left: 40px;
+
+        &:after{
+            content: '›';
+            width: 38px;
+            height: 38px;
+            line-height: 40px;
+            font-size: 39px;
+            color: white;
+            text-align: center;
+            background: $active-color;
+            border-radius: 50px; 
+            text-indent: -1px;     
+        }
+
+        &.slick-next{
+            left: auto;
+            right: 40px;
+
+            &:after{
+                content: '‹';
+                text-indent: 1px;     
+            }
+        }
+    }
+
+    .slick-dots{
+        bottom: 100px;
+
+        button{
+            background-color: $active-color;
+            border: none;
+            width: 10px;
+            height: 10px;
+        }
+
+        li.slick-active button{
+            width: 10px;
+            height: 10px;
+            border: none;
+            background: $highlight-color;
+        }
+    }
+}
+
+#hero-close{
+    position: fixed;
+    top: 100px;
+    right: -150px;
+    z-index: 5;
+    width: 35px;
+    height: 35px;
+    border-radius: 50px;
+    background: $active-color;
+    @include transition(right .25s);
+    text-align: center;
+
+    .icon:before{
+        color: white;
+        line-height: 37px;
+        font-size: 30px;
+        text-align: center; 
+    }
+}
+
+
+
+.hero-open{
+
+    .hero-front{
+        opacity: 0;
+    }
+
+    .hero-back{
+        z-index: 1;
+    }
+
+    .slick-thought{
+        .slick-arrow{
+            display: block !important;
+            z-index: 4;
+        }    
+        .slick-dots{
+            z-index: 4;
+            display: block !important;
+        }    
+    }
+
+    .thought-context{
+        top: -1em !important;
+    }
+
+    #hero-close{
+        right: 55px;
+    }
+
+}
+
+
+
+
