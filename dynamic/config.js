@@ -27,7 +27,7 @@ module.exports = function( express, app, config, schema, log ) {
     app.set('view engine', 'html');
     app.set('view cache', !config.development );
     app.set('views', path.join( __dirname, '..', 'templates' ) );
-    swig.setDefaults({ cache: !config.development });
+    swig.setDefaults({ cache: ( config.development ) ? false : "memory" });
 
     app.use('/public', express.static( path.join(__dirname, '..', 'public' )));
 

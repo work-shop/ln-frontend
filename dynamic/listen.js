@@ -16,12 +16,19 @@ module.exports = function( app, config, globals ) {
 
 		try {
 
-			if ( fs.statSync( config.socket ).isSocket() ) {
+            var exists = fs.existsSync( config.socket );
+
+			if ( exists && fs.statSync( config.socket ).isSocket() ) {
 
 				fs.unlinkSync( config.socket );
 
-			}
+			} else if ( exists ) {
 
+                globals.log.error( ['Fatal Error for \'', config.name, '\': Existing non-socket \'', config.socket ,'\'.'].join(''), 'socket-bind' );
+
+                process.exit( 1 );
+
+            }
 		} catch ( e ) {
 
             globals.log.error( e, 'socket-bind' );
@@ -30,13 +37,20 @@ module.exports = function( app, config, globals ) {
 
         }
 
-		app.listen( config.socket, function() { fs.chmodSync( config.socket, 777 ); });
+        process.on('SIGINT', function( ) { process.exit(0); });
 
-		process.on('SIGINT', function( ) { process.exit(0); });
+        process.on('SIGTERM', function( ) { process.exit(0); });
 
-		process.on('SIGTERM', function( ) { process.exit(0); });
+        process.on('exit', function( ) { fs.unlinkSync( config.socket ); });
 
-		process.on('exit', function( ) { fs.unlinkSync( config.socket ); });
+		app.listen( config.socket, function() {
+
+            globals.log.log( 'Server listening on socket \'' + config.socket + '\'.', 'configuration' );
+
+            fs.chmodSync( config.socket, 777 );
+
+        });
+
 
 	}
 
