@@ -1,0 +1,11 @@
+{% macro section( item ) %}
+    <section class="thought-context container" data-shift-v="-4">
+        <div class="pt4 pb4 row thick-border-page-color">
+            <div class="col-sm-10 offset-sm-1">
+
+                <p class="h3">{{ item.introduction|safe }}</p>
+
+            </div>
+        </div>
+    </section>
+{% endmacro %}

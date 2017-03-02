@@ -1,6 +1,10 @@
 {% extends 'partials/base.html' %}
 
 {% import 'partials/index/index-hero.html' as hero %}
+{% import 'partials/index/index-context.html' as context %}
+{% import 'partials/index/index-thought-groups.html' as groups %}
+{% import 'partials/index/index-thought-callout.html' as callout %}
+{% import 'partials/thought/thought-card.html' as card %}
 
 {% block definitions %} {% endblock %}
 {% block body_classes %} page-home {% endblock %}
@@ -8,14 +12,9 @@
 
 {% block content %}
 
-    {{ hero.section( options ) }}
-
-    <script>
-
-        console.log({{ item|json|safe }});
-        console.log({{ options|json|safe }});
-        console.log({{ globals|json|safe }});
-
-    </script>
+    {{ hero.section( item ) }}
+    {{ context.section( item ) }}
+    {{ groups.section( item.thought_groups )}}
+    {{ callout.section() }}
 
 {% endblock %}

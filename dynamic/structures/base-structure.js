@@ -16,6 +16,9 @@ module.exports = function( compiled, options, globals ) {
         },
         hero_image_url: function( item ) {
             return item.hero.image.sizes.hero;
+        },
+        url : function( item ) {
+            return item.link;
         }
     }, compiled);
 

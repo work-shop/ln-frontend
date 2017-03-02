@@ -10,6 +10,9 @@ var restructureAbout = require('../structures/restructure-about.js');
  *
  */
 module.exports = function( wp, config, globals ) {
+
+    var urlReplace = require('../utilities/resource-map.js')( config );
+
     return base.route(
         /**
          * Get initial set of resources we need to render the page.
@@ -29,7 +32,7 @@ module.exports = function( wp, config, globals ) {
 
             globals.log.log( 'Successful request to index.', 'route-index:success-handler');
 
-            res.render('about.html', restructureAbout( options, globals ) );
+            res.render('about.html', urlReplace( restructureAbout( options, globals ) ) );
 
         },
         /**

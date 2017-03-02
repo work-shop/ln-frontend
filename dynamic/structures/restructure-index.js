@@ -11,6 +11,7 @@ var restructureThought = require('./restructure-thought.js');
 module.exports = function( options, globals ) {
 
     return baseStructure({
+        page: 'home',
         item: {
             statement: options.acf.site_statement,
             introduction: options.acf.site_introduction,
