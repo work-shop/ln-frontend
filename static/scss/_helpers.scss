@@ -39,6 +39,12 @@
 	display: none !important;
 }
 
+.hidden-xs {
+    @media screen and (max-width: $xs) {
+        display: none;
+    }
+}
+
 .clearfix{
   &:before,
   &:after {
@@ -60,4 +66,3 @@
 .loaded{
 	opacity: 1;
 }
-

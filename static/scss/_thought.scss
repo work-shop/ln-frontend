@@ -43,6 +43,10 @@
 
 }
 
+.content-region {
+    background-color: $white;
+}
+
 .thought-icon{
     span:before{
         color: white;
@@ -54,7 +58,6 @@
 *
 */
 .thought-context {
-    background-color: $white;
     @include transition(top .25s);
 }
 
@@ -227,6 +230,11 @@
     }
 }
 
+.hero-toggle:hover {
+    .icon::before {
+        color: $active-color;
+    }
+}
 
 //classes for when the hero is toggled to 'open'
 body.hero-open{
