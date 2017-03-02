@@ -21,7 +21,7 @@ module.exports = function Logger( config ) {
             if ( typeof err === "string" ) {
                 console.error( ['['.gray,(new Date()).toISOString().gray,'] '.gray, (typeof prefix !=="undefined") ? ("("+ prefix +") ").red : "", "- ".gray, err, '\n'].join('') );
             } else {
-                console.error( ['['.gray,(new Date()).toISOString().gray,'] '.gray, (typeof prefix !=="undefined") ? ("("+ prefix +") ").red : "", "- ".gray, err.message, '\n', err.stack.gray, '\n'].join('') );
+                console.error( ['['.gray,(new Date()).toISOString().gray,'] '.gray, (typeof prefix !=="undefined") ? ("("+ prefix +") ").red : "", "- ".gray, err.message, '\n', ( config.stacktrace === true ) ? (err.stack.gray) : "", ( config.stacktrace === true ) ? '\n' : ""].join('') );
             }
         }
 

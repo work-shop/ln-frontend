@@ -30,5 +30,14 @@ parser.addArgument(
 	}
 );
 
+parser.addArgument(
+	['--stacktrace'],
+	{
+		action: 'storeTrue',
+		dest: 'stacktrace',
+		help: 'Specify whether error stack traces should be printed in development mode. Has no effect in production mode.',
+	}
+);
+
 
 module.exports = extend( config, parser.parseArgs() );
