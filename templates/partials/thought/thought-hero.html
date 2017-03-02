@@ -6,7 +6,7 @@
    {% macro section( item ) %}
 
     <section id="thought-hero" class="pt6 pb6 hero {{ heroclass( item ) }} hero-section container-fluid" {{ heroimage( item ) }}>
-        
+
         {% if item.hero.type === "images" %}
             <div class="block-background hero-back">
                 <div class="slick slick-thought">
@@ -22,7 +22,7 @@
             <div class="thought-hero-mask background-color-page-color"></div>
             <div class="row mb3">
                 <div class="offset-sm-3 col-sm-6 centered">
-                    <h1 class="thought-title"><span>{{ item.title.long }}<span></h1>
+                    <h1 class="thought-title"><span>{{ herotitle( item ) }}<span></h1>
                 </div>
             </div>
             <div class="row">
@@ -46,27 +46,31 @@
 
 {% macro heroclass( item ) %} herotype-{{ item.hero.type }} {% endmacro %}
 
-    {# hero.herotype #}
-    {% macro heroimage( item ) %}
-        {% if item.hero.type === "image" %}
-            style="background-image:url('{{ item.hero.image.sizes.hero }}')"
-        {% elseif item.hero.type === "video" %}
-            style="background-image:url('{{ item.hero.hero_cover_image.sizes.hero }}')"
-        {% endif %}
-    {% endmacro %}
+{# hero.herotype #}
+{% macro heroimage( item ) %}
+    {% if item.hero.type === "image" %}
+        style="background-image:url('{{ item.hero.image.sizes.hero }}')"
+    {% elseif item.hero.type === "video" %}
+        style="background-image:url('{{ item.hero.hero_cover_image.sizes.hero }}')"
+    {% endif %}
+{% endmacro %}
 
 
-    {# hero.herotype #}
-    {% macro heroIcon( item ) %}
-        {% if item.hero.type === "image" %}
-            <!-- Image -->
-        {% elseif item.hero.type === "images" %}
-            <a href="#gallery" class="hero-toggle thought-icon">
-                <span class="icon" data-icon="Ω"></span>
-            </a>
-        {% elseif item.hero.type === "video" %}
-            <!-- Video -->
-        {% else %}
-            <!--  Something else -->
-        {% endif %}
-    {% endmacro %}
+{% macro herotitle( item ) %}
+    {% if item.title.long %}{{ item.title.long }}{% else %}{{ item.title.short }}{% endif %}
+{% endmacro %}
+
+{# hero.herotype #}
+{% macro heroIcon( item ) %}
+    {% if item.hero.type === "image" %}
+        <!-- Image -->
+    {% elseif item.hero.type === "images" %}
+        <a href="#gallery" class="hero-toggle thought-icon">
+            <span class="icon" data-icon="Ω"></span>
+        </a>
+    {% elseif item.hero.type === "video" %}
+        <!-- Video -->
+    {% else %}
+        <!--  Something else -->
+    {% endif %}
+{% endmacro %}

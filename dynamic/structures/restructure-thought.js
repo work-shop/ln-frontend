@@ -1,13 +1,14 @@
 "use strict";
 
+var util = require('util');
 var log = require('../logging/index.js')();
+var maybeFeaturedImage = require('../utilities/maybe-with-default.js')([])
 
 module.exports = function ( thought ) {
 
     try {
 
         return {
-
             title: {
                 short: thought.title.rendered,
                 long: thought.acf.longname
@@ -19,7 +20,8 @@ module.exports = function ( thought ) {
             summary: thought.acf.summary,
             metadata: thought.acf.metadata,
             overview: thought.acf.overview,
-            sections: thought.acf.sections
+            sections: thought.acf.sections,
+            featured_image: maybeFeaturedImage( thought._embedded['wp:featuredmedia'] )[0]
 
         };
 
@@ -77,6 +79,12 @@ function determineHeroStructure( acf ) {
             throw new Error('determineHeroStructure: Encountered an unrecognized hero video type: \'' + acf.hero_video_type + '\'');
 
         }
+
+    } else if ( acf.hero_type === "none" ) {
+
+        return {
+            type: "none"
+        };
 
     } else {
 

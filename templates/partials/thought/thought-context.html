@@ -32,11 +32,11 @@
 {% macro overview( item ) %}
     {% if item.metadata %}
         <div class="col-sm-5 thought-overview">
-            <p>{{ item.overview }}</p>
+            <p>{{ item.overview|safe }}</p>
         </div>
     {% else %}
         <div class="col-sm-10 offset-sm-1 thought-overview">
-            <p>{{ item.overview }}</p>
+            <p>{{ item.overview|safe }}</p>
         </div>
     {% endif %}
 {% endmacro %}

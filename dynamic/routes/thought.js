@@ -3,6 +3,7 @@
 var util = require('util');
 var base = require('./generic/base-route.js')();
 
+
 var restructureThoughtPage = require('../structures/restructure-thought-page.js');
 //var mapResources = require('../utilities/resource-map.js');
 /**
@@ -10,6 +11,9 @@ var restructureThoughtPage = require('../structures/restructure-thought-page.js'
  *
  */
 module.exports = function( wp, config, globals ) {
+
+    var urlReplace = require('../utilities/resource-map.js')( config );
+
     return base.route(
         /**
          * Get initial set of resources we need to render the page.
@@ -33,7 +37,7 @@ module.exports = function( wp, config, globals ) {
             globals.log.log( 'Successful request to index.', 'route-index:success-handler');
             globals.log.log( util.inspect( thought ), 'route-index:requested-thought');
 
-            res.render('thought.html', restructureThoughtPage( thought, options, globals ) );
+            res.render('thought.html', urlReplace( restructureThoughtPage( thought, options, globals ) ) );
 
         },
         /**

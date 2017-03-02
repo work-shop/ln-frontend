@@ -1,0 +1,36 @@
+{% macro section( thought, sm, lg ) %}
+
+    <li class="thought-card col-lg-{{ lg }} col-sm-{{ sm }}" data-element-color="{{ thought.color }}">
+        <div class="card-background-image p2" style="{{ cardimage( thought ) }}">
+            <a href="{{ url( thought ) }}">
+
+                <div class="thought-hero-mask thought-card-overlay hover-element-color-background-color"></div>
+
+                <div class="card-content">
+                    <h3 class="card-title pb4">{{ cardtitle( thought ) }}</h3>
+                    {% if thought.metadata %}
+                        <ul class="card-metadata">
+                            <li class="metadata-item">
+                                <div class="col-sm-3 metadata-item-label">
+                                    <span class="white uppercase h6">{{ thought.metadata[0].label }}</span>
+                                </div>
+                                <div class="col-sm-9 metadata-item-value righted">
+                                    <span class="white h6 p0">{{ thought.metadata[0].value }}</span>
+                                </div>
+                            </li>
+                        </ul>
+                    {% endif %}
+                </div>
+            </a>
+        </div>
+    </li>
+
+{% endmacro %}
+
+{% macro cardtitle( thought ) %}
+    {% if ( thought.title.long ) %} {{ thought.title.long }} {% else %} {{ thought.title.short }} {% endif %}
+{% endmacro %}
+
+{% macro cardimage( thought ) %}
+    background-image:url('{{ thought.featured_image.media_details.sizes.grid.source_url }}');
+{% endmacro %}
