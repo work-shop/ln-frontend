@@ -23,6 +23,12 @@
     opacity: $hero-opacity;
 }
 
+.herotype-none {
+    .thought-hero-mask {
+        opacity: 1;
+    }
+}
+
 
 /* definition to support the proper formatting of
 * title blocks on the thought page.  */
@@ -71,10 +77,64 @@
 }
 
 
+/** Thought cards for display on Home and thoughts page. */
+
+.thought-card .card-background-image {
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.thought-card-overlay {
+    background-color:$dark;
+}
+
+.card-content {
+    width:100%;
+
+    .card-title {
+        position: relative;
+        color:$white;
+    }
+
+    .card-metadata {
+        display: block;
+        position: absolute;
+        bottom:4%;
+
+
+        opacity: 0;
+
+        .metadata-item-label {
+            width:25%;
+            padding-left:0;
+        }
+
+        .metadata-item-value {
+            width: 75%;
+        }
+
+    }
+
+}
+
+/** thought hover effects  */
+.thought-card:hover {
+
+    @include transition(all, 250ms);
+
+    .card-metadata {
+
+        opacity: 1;
+
+    }
+
+}
+
 
 /* thought gallery */
 
-.hero-front{
+.hero-front {
     opacity: 1;
     @include transition(opacity .25s);
 }
@@ -113,8 +173,8 @@
             color: white;
             text-align: center;
             background: $active-color;
-            border-radius: 50px; 
-            text-indent: -1px;     
+            border-radius: 50px;
+            text-indent: -1px;
         }
 
         &.slick-next{
@@ -123,7 +183,7 @@
 
             &:after{
                 content: '‹';
-                text-indent: 1px;     
+                text-indent: 1px;
             }
         }
     }
@@ -163,7 +223,7 @@
         color: white;
         line-height: 37px;
         font-size: 30px;
-        text-align: center; 
+        text-align: center;
     }
 }
 
@@ -183,11 +243,11 @@ body.hero-open{
         .slick-arrow{
             display: block !important;
             z-index: 4;
-        }    
+        }
         .slick-dots{
             z-index: 4;
             display: block !important;
-        }    
+        }
     }
 
     .thought-context{
@@ -199,7 +259,3 @@ body.hero-open{
     }
 
 }
-
-
-
-

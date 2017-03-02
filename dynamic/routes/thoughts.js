@@ -1,5 +1,7 @@
 "use strict";
 
+var archive = require('./generic/archive.js');
+var restructureThoughts = require('../structures/restructure-thoughts.js');
 /**
  *
  *
@@ -7,8 +9,8 @@
  *
  *
  */
-module.exports = function( wp, config, globals ) {
-    return function( req, res ) {
-
-    };
-};
+module.exports = archive({
+    type: "thoughts",
+    template: "thoughts.html",
+    restructure: restructureThoughts
+});

@@ -11,7 +11,9 @@ var restructureThought = require('./restructure-thought.js');
 module.exports = function( thoughts, options, globals ) {
 
     return baseStructure({
-        thoughts: thoughts.map( function( thought ) {
+        page: 'thoughts',
+        thoughts_statement: options.acf.thoughts_description,
+        items: thoughts.map( function( thought ) {
             return restructureThought( thought, options, globals );
         })
     }, options, globals );

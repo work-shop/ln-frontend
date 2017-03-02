@@ -1,3 +1,8 @@
+{% import 'partials/thought/thought-card.html' as card %}
+{% import 'partials/thoughts/thoughts-hero.html' as hero %}
+{% import 'partials/thoughts/thoughts-filters.html' as filters %}
+{% import 'partials/thoughts/thoughts-grid.html' as grid %}
+
 {% extends 'partials/base.html' %}
 
 {% block definitions %} {% endblock %}
@@ -6,5 +11,8 @@
 
 {% block content %}
 
+    {{ hero.section() }}
+    {{ filters.section() }}
+    {{ grid.section( items ) }}
 
 {% endblock %}

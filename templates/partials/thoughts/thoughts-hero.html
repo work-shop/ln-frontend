@@ -1,0 +1,19 @@
+{% macro section() %}
+
+    <section id="thoughts-hero" class="pt6 pb3 hero hero-section container-fluid">
+        <div class="hero-front">
+            <div class="thought-hero-mask bg-white"></div>
+            <div class="row mb3">
+                <div class="offset-sm-3 col-sm-6 centered">
+                    <h1 class="title"><span class="thoughts-title">Thoughts<span></h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="offset-sm-3 col-sm-6 centered">
+                    <p class="summary h3">{{ thoughts_statement }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endmacro %}
