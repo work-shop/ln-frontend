@@ -14,7 +14,7 @@ window.$ = $;
 
 WebFont.load({
     google: {
-        families: ['Cabin:n4,i4,n7']
+        families: ['Cabin:n4,i4,n7', 'Playfair+Display']
     }
 });
 

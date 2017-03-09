@@ -29,6 +29,10 @@ module.exports = function( $, config ) {
                 borderBottom: [config.border.thick, config.border.type, colorString].join(' ')
             });
 
+            $('.border-bottom-thin-page-color').css({
+                borderBottom: [config.border.thin, config.border.type, colorString].join(' ')
+            });
+
             $('.hover-page-color').hover(
                 function() { $(this).css({ color: colorString }); },
                 function() { $(this).css({ color: 'inherit' }); }

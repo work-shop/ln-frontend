@@ -2,7 +2,8 @@
 
 {% import 'partials/thought/thought-hero.html' as h %}
 {% import 'partials/thought/thought-context.html' as c %}
-{% import 'partials/thought/thought-insight.html' as i %}
+{% import 'partials/thought/thought-conversational-insight.html' as conversational %}
+{% import 'partials/thought/thought-academic-insight.html' as academic %}
 
 {% block definitions %} {% endblock %}
 {% block body_classes %} page-thought {% endblock %}
@@ -17,7 +18,17 @@
     {% set padding = 0 %}
     {% for object in item.sections %}
 
-        {{ i.section( object, item, padding ) }}
+        {% if item.format == "academic" %}
+
+            {{ academic.section( object, item ) }}
+
+        {% elseif item.format == "conversational" %}
+
+            {{ conversational.section( object, item, padding ) }}
+
+        {% else %}
+
+        {% endif %}
 
         {% if object.image %}{% set padding = padding + 1 %}{% endif %}
 

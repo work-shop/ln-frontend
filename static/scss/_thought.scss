@@ -135,6 +135,22 @@
 }
 
 
+/* thought academic treatement */
+
+.insight.academic {
+    .insight-title {
+        @extend .academic;
+    }
+
+    .insight-introduction {
+        @extend .h4;
+        @extend .academic;
+    }
+
+}
+
+
+
 /* thought gallery */
 
 .hero-front {
