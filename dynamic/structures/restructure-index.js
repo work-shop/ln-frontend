@@ -17,7 +17,8 @@ module.exports = function( options, globals ) {
             introduction: options.acf.site_introduction,
             image: options.acf.site_image,
             thought_groups: options.acf.thought_groups.map( restructureThoughtGroup ),
-            footer_thoughts: options.acf.footer_thoughts.map( restructureFooterThought )
+            footer_thoughts: options.acf.footer_thoughts.map( restructureFooterThought ),
+            gallery: options.acf.site_gallery
         }
     }, options, globals);
 

@@ -20,6 +20,7 @@ module.exports = function ( thought ) {
             summary: thought.acf.summary,
             metadata: thought.acf.metadata,
             overview: thought.acf.overview,
+            format: thought.acf.format,
             sections: thought.acf.sections,
             featured_image: maybeFeaturedImage( thought._embedded['wp:featuredmedia'] )[0]
 
