@@ -4,7 +4,7 @@
             <h5 class="white"><span class="underline uppercase">Interested In This?</span></h5>
         </div>
         <div class="offset-sm-1 col-sm-10 centered">
-            <a class="white" href="mailto:lawrence.neeley@olin.edu"><span class="italic">Email me something about who you are and why you're interested.</span></a>
+            <a class="white" href="mailto:{{ options.contact_email }}"><span class="italic">Email me something about who you are and why you're interested.</span></a>
         </div>
     </div>
     <div class="row content-callout pb1">
@@ -17,8 +17,8 @@
                     <li class="mb1"><h4 class="uppercase bold">Lawrence Neeley</h4></li>
                     <li class="white">Olin Way</li>
                     <li class="white">Needham, MA 02492</li>
-                    <li class="white">000.000.0000</li>
-                    <li class="white"><a class="white" href="mailto:lawrence.neeley@olin.edu">lawrence.neeley@olin.edu</a></li>
+                    <li class="white">{{ options.contact_phone }}</li>
+                    <li class="white"><a class="white" href="mailto:{{ options.contact_email }}">{{ options.contact_email }}</a></li>
                 </ul>
             </address>
         </div>
