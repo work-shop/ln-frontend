@@ -16,7 +16,8 @@ module.exports = function( options, globals ) {
             cv: options.acf.cv,
             cv_introduction: options.acf.cv_introduction,
             mission_statement: options.acf.mission_statement,
-            about_statement: options.acf.about
+            about_statement: options.acf.about,
+            about_image: options.acf.about_image
         }
     }, options, globals);
 

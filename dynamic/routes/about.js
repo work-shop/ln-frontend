@@ -30,7 +30,7 @@ module.exports = function( wp, config, globals ) {
          */
         function( req, res, options ) {
 
-            globals.log.log( 'Successful request to index.', 'route-index:success-handler');
+            globals.log.log( 'Successful request to about.', 'route-about:success-handler');
 
             res.render('about.html', urlReplace( restructureAbout( options, globals ) ) );
 
@@ -46,7 +46,7 @@ module.exports = function( wp, config, globals ) {
          */
         function( req, res, err ) {
 
-            globals.log.error( err, 'route-index:error-handler');
+            globals.log.error( err, 'route-about:error-handler');
 
             res.render('error.html', {error_code: 500, description: err.message });
 

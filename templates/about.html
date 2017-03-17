@@ -1,3 +1,8 @@
+{% import 'partials/about/about-hero.html' as hero %}
+{% import 'partials/about/about-body.html' as body %}
+{% import 'partials/about/about-cv.html' as cv %}
+
+
 {% extends 'partials/base.html' %}
 
 {% block definitions %} {% endblock %}
@@ -6,5 +11,8 @@
 
 {% block content %}
 
+    {{ hero.section( item ) }}
+    {{ body.section( item ) }}
+    {{ cv.section( item ) }}
 
 {% endblock %}

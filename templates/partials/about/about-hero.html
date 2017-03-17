@@ -1,0 +1,14 @@
+
+{# hero.section #}
+{% macro section( item ) %}
+    <section id="about-hero" class="pt6 pb6 hero {{ heroclass( item ) }} hero-section container-fluid vh75 relative">
+
+        <div class="thought-hero-mask background-color-page-color"></div>
+
+        <div class="row mb3 vertical-center">
+            <div class="offset-sm-2 col-sm-8 centered">
+                <h1 class="site-title white relative"><span>{{ item.mission_statement }}<span></h1>
+            </div>
+        </div>
+    </section>
+{% endmacro %}
