@@ -1,7 +1,16 @@
 
 {# hero.section #}
 {% macro section( item ) %}
-    <section id="about-hero" class="pt6 pb6 hero {{ heroclass( item ) }} hero-section container-fluid vh75 relative">
+    <section id="about-hero" class="pt6 pb6 hero hero-section container-fluid vh75 relative">
+
+        <div class="about-hero-slideshow block-background hero-back vh80">
+            <div class="slick slick-passive">
+                {% for image in options.site_gallery %}
+                    <div class="slide" style="background-image: url('{{ image.sizes.hero }}')">
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
 
         <div class="thought-hero-mask background-color-page-color"></div>
 

@@ -12,17 +12,26 @@ module.exports = function($, slick) {
 			speed: 400
 		});
 
+        $('.slick-passive').slick({
+            fade: true,
+            arrows:false,
+			dots: false,
+			autoplay: true,
+			autoplaySpeed: 0,
+			speed: 3000
+		});
+
 		$('.slick-thought').slick({
 			dots: true,
 			arrows: true,
 			autoplay: false,
 			speed: 300
-		});		
+		});
 
 		$('.slick-default').on('afterChange', function(){
 			$('.slick-default').slick('slickPause');
 		});
-		
+
 	}
 
 	function setupSlideshows() {
