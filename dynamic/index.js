@@ -1,7 +1,7 @@
 "use strict";
 
 
-var request = require('request-promise');
+var request = require('requestretry');
 
 var generateConfig = require('./config.js');
 var routes = require('./routes.js');
@@ -9,11 +9,25 @@ var listen = require('./listen.js'); //listen is responsible for actually starti
 var Logger = require('./logging/index.js');
 
 module.exports = function( express, app, config ) {
+
+    require('dnscache')({
+        "enable": true,
+        "ttl": 300,
+        "cachesize": 1000
+    });
+
     return function() {
 
         var log = new Logger( config );
 
-        request({ uri: config.external_api, json: true, })
+        request({
+                uri: config.external_api,
+                json: true,
+                maxAttempts: 5,
+                retryDelay: 1000,
+                retryStrategy: request.RetryStrategies.HTTPOrNetworkError,
+                fullResponse: false
+            })
             /**
              * The initial API request should result in the set of available namespaces
              * Installed on WordPress' rest endpoint. We request this schema to instantiate
