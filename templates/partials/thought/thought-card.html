@@ -1,6 +1,6 @@
 {% macro section( thought, sm, lg ) %}
 
-    <li class="thought-card col-lg-{{ lg }} col-sm-{{ sm }}" data-element-color="{{ thought.color }}">
+    <li class="mb2 thought-card col-lg-{{ lg }} col-sm-{{ sm }}" data-element-color="{{ thought.color }}">
         <div class="card-background-image p2" style="{{ cardimage( thought ) }}">
             <a href="{{ url( thought ) }}">
 
@@ -11,10 +11,10 @@
                     {% if thought.metadata %}
                         <ul class="card-metadata">
                             <li class="metadata-item">
-                                <div class="col-sm-3 metadata-item-label">
+                                <div class="col-xs-3 col-sm-3 metadata-item-label">
                                     <span class="white uppercase h6">{{ thought.metadata[0].label }}</span>
                                 </div>
-                                <div class="col-sm-9 metadata-item-value righted">
+                                <div class="col-xs-9 col-sm-9 metadata-item-value righted">
                                     <span class="white h6 p0">{{ thought.metadata[0].value }}</span>
                                 </div>
                             </li>
