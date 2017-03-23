@@ -10,3 +10,11 @@
 	font-style: normal;
 }
 
+@font-face {
+    font-family: 'Domaine Display Semibold';
+    src: url('DomaineDisplayWeb-Semibold.eot');
+    src: url('DomaineDisplayWeb-Semibold?#iefix') format('embedded-opentype'),
+        url('DomaineDisplayWeb-Semibold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
