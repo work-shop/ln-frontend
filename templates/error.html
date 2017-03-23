@@ -7,9 +7,52 @@
 
 <article>
 
-	<h1>{{ error_code }}</h1>
+        <section id="error-hero" class="hero hero-section container-fluid relative vh50">
 
-    <h2>{{ message }}</h2>
+            <div class="about-hero-slideshow block-background hero-back vh80">
+                <div class="slick slick-passive">
+                    {% for image in options.site_gallery %}
+                        <div class="slide" style="background-image: url('{{ image.sizes.hero }}')">
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="thought-hero-mask background-color-page-color"></div>
+
+            <div class="row mb2 vertical-center">
+                <div class="offset-sm-2 col-sm-8 centered mb2">
+                    <h1 class="site-title white relative academic">
+                        <a class="white academic" href="https://httpstatuses.com/{{error_code}}">
+                        {% if error_code === 404 %}
+                            <span class="icon" data-icon="¬"></span> Couldn't find it!
+                        {% else %}
+                            <span class="icon" data-icon="∑"></span> Error ({{ error_code }})!
+                        {% endif %}
+                        </a>
+                    </h1>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="insight container mt4 mb4">
+            <div class="row ml1 mr1 ">
+                <div class="col-sm-12 centered mb3">
+                    <h2 class="academic insight-title page-color">Error ({{ error_code }})</h2>
+                </div>
+            </div>
+            <div class="row ml1 mr1 mb2">
+                <div class="col-sm-10 offset-sm-1 centered">
+                    <p class="">It's a <a class="page-color" href="https://httpstatuses.com/{{error_code}}">{{ error_code }} error</a>. {{ message }}</p>
+                </div>
+            </div>
+            <div class="row  ml1 mr1">
+                <div class="col-sm-2 offset-sm-5">
+                    <h4 class="academic-rule border-bottom-page-color" />
+                </div>
+            </div>
+        </section>
 
 </article>
 
