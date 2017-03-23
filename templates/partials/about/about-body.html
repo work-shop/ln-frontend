@@ -1,16 +1,6 @@
 {% macro section( item ) %}
 
-<section class="insight container academic mt4 mb4" data-shift-v="-8">
-    {% if item.about_image %}
-        <div class="row ml1 mr1 mb2">
-            <div class="offset-sm-4 col-sm-4">
-                <img class="insight-image thin-border-page-color" src="{{ item.about_image.sizes.story }}">
-                {% if item.about_image.caption %}
-                <p class="caption">{{ item.about_image.caption }}</p>
-                {% endif %}
-            </div>
-        </div>
-    {% endif %}
+<section class="insight container academic mt4 mb4">
     <div class="row ml1 mr1">
         <div class="col-sm-12 centered mb3">
             <h2 class="insight-title page-color">About Lawrence</h2>
