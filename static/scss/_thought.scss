@@ -143,12 +143,12 @@
     }
 
     .insight-introduction {
-        @extend .h4;
-        @extend .academic;
-        
+        @extend .h3;
+        //@extend .academic;
+
         * {
-            @extend .h4;
-            @extend .academic;
+            @extend .h3;
+            //@extend .academic;
         }
 
     }
