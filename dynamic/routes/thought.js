@@ -34,8 +34,7 @@ module.exports = function( wp, config, globals ) {
          */
         function( req, res, options, thought ) {
 
-            globals.log.log( 'Successful request to index.', 'route-index:success-handler');
-            globals.log.log( util.inspect( thought ), 'route-index:requested-thought');
+            globals.log.log( 'Successful request to index.', 'route-thought:success-handler');
 
             res.render('thought.html', urlReplace( restructureThoughtPage( thought, options, globals ) ) );
 
@@ -51,7 +50,7 @@ module.exports = function( wp, config, globals ) {
          */
         function( req, res, err ) {
 
-            globals.log.error( err, 'route-index:error-handler');
+            globals.log.error( err, 'route-thought:error-handler');
 
             res.render('error.html', {error_code: err.code, description: err.message });
 
