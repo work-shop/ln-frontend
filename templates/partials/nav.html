@@ -1,12 +1,12 @@
 <nav class="container">
     <ul class="header-left-block row">
-        <li class="col-xs-4 uppercase"><a class="hover-page-color bold" href="/">L<span class="hidden-xs">awrence </span>N<span class="hidden-xs">eeley</span></a></li>
+        <li class="col-xs-4 uppercase"><a class="hover-page-color bold" href="/">L<span class="hidden-xs bold">awrence </span>N<span class="hidden-xs bold">eeley</span></a></li>
 
         {% if item %}
             <li class="col-sm-4 centered hidden-xs"><a class="hover-page-color" href="/">{{ item.title.short|safe }}</a></li>
         {% endif %}
 
-        <li class="offset-xs-0 col-xs-4 col-sm-2 {% if !item %}offset-sm-4{% endif %} uppercase righted"><a class="hover-page-color" href="/thoughts">Thoughts</a></li>
-        <li class="col-xs-4 col-sm-2 uppercase righted"><a class="hover-page-color" href="/about">About</a></li>
+        <li class="offset-xs-0 col-xs-4 col-sm-2 {% if !item %}offset-sm-4{% endif %} uppercase righted"><a class="hover-page-color {% if page == "thoughts" %}page-color bold{% endif %}" href="/thoughts">Thoughts</a></li>
+        <li class="col-xs-4 col-sm-2 uppercase righted"><a class="hover-page-color {% if page == "about" %}page-color bold{% endif %}" href="/about">About</a></li>
     </ul>
 </nav>
