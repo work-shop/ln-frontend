@@ -123,5 +123,18 @@
             </div>
         </div>
         </section>
+    {% else %}
+        <section class="insight container academic mb4">
+        <div class="row ml1 mr1 mb2">
+            <div class="col-sm-10 offset-sm-1  wysiwyg">
+                {{ insight.content|safe }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 offset-sm-5">
+                <h4 class="academic-rule border-bottom-page-color" />
+            </div>
+        </div>
+        </section>
     {% endif %}
 {% endmacro %}

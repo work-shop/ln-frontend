@@ -57,7 +57,7 @@
 
 
 {% macro herotitle( item ) %}
-    {% if item.title.long %}{{ item.title.long }}{% else %}{{ item.title.short }}{% endif %}
+    {% if item.title.long %}{{ item.title.long|safe }}{% else %}{{ item.title.short|safe }}{% endif %}
 {% endmacro %}
 
 {# hero.herotype #}

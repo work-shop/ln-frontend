@@ -28,7 +28,7 @@
 {% endmacro %}
 
 {% macro cardtitle( thought ) %}
-    {% if ( thought.title.long ) %} {{ thought.title.long }} {% else %} {{ thought.title.short }} {% endif %}
+    {% if ( thought.title.long ) %} {{ thought.title.long|safe }} {% else %} {{ thought.title.short|safe }} {% endif %}
 {% endmacro %}
 
 {% macro cardimage( thought ) %}
