@@ -1,8 +1,8 @@
 "use strict";
 
 var util = require('util');
-var log = require('../logging/index.js')();
-var maybeFeaturedImage = require('../utilities/maybe-with-default.js')([])
+var log = require('../logging/index.js')({stacktrace:true});
+var maybeFeaturedImage = require('../utilities/maybe-with-default.js')({'wp:featuredmedia':[]})
 
 module.exports = function ( thought ) {
 
@@ -22,7 +22,7 @@ module.exports = function ( thought ) {
             overview: thought.acf.overview,
             format: thought.acf.format,
             sections: thought.acf.sections,
-            featured_image: maybeFeaturedImage( thought._embedded['wp:featuredmedia'] )[0]
+            featured_image: maybeFeaturedImage( thought._embedded )['wp:featuredmedia'][0]
 
         };
 
@@ -30,7 +30,20 @@ module.exports = function ( thought ) {
 
         log.error( err, 'restructure-thought');
 
-        return {};
+        return {
+            title: {
+                short: thought.title.rendered,
+                long: thought.acf.longname
+            },
+            slug: thought.slug,
+            link: thought.link,
+            color: thought.acf.color,
+            summary: thought.acf.summary,
+            metadata: thought.acf.metadata,
+            overview: thought.acf.overview,
+            format: thought.acf.format,
+            sections: thought.acf.sections
+        };
 
     }
 
