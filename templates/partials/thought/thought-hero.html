@@ -35,6 +35,22 @@
                     {{ heroIcon( item ) }}
                 </div>
             </div>
+            {% if item.resources %}
+            <div class="row mb2 light">
+                <ul class="offset-sm-1 col-sm-10 centered">
+                    <li class="centered">
+                        <h5 class="uppercase white bold">Download Resources</h5>
+                    </li>
+                    {% for resource in item.resources %}
+                        <li class="centered">
+                            <a class="white" target="_blank" href="{{ resource.file.url }}">
+                                <span class="bold resource-type uppercase">{{ resource.type }}</span>{{ resource.name }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
         </div>
     </section>
 

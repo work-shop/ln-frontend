@@ -1,0 +1,48 @@
+{% macro section( insight, item ) %}
+
+        {{ sectionContent( insight, item, shift ) }}
+
+{% endmacro %}
+
+
+
+{% macro sectionContent( insight, item ) %}
+
+    <section class="insight presentation centered">
+
+        {% if insight.image %}
+            <div class="slide-content col-sm-10 offset-sm-1 relative">
+
+                <div class="vertical-center">
+                    <img class="presentation-image thin-border-page-color" src="{{ insight.image.url }}">
+
+                    <p class="presentation-summary">
+                        {{ insight.content|safe }}
+                    </p>
+                </div>
+
+            </div>
+
+        {% else %}
+
+            <div class="slide-content col-sm-10 offset-sm-1 relative background-color-page-color">
+
+                <div class="vertical-center">
+                    {% if insight.title %}
+                        <h3 class="academic white border-bottom-page-color">{{ insight.title }}</h3>
+                    {% endif %}
+                    {% if insight.title %}
+                        <p class="academic white border-bottom-page-color">{{ insight.introduction }}</h3>
+                    {% endif %}
+                    <div class="presentation-summary white wysiwyg">
+                        {{ insight.content|safe }}
+                    </div>
+                </div>
+
+            </div>
+
+        {% endif %}
+
+    </section>
+
+{% endmacro %}
