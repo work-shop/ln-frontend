@@ -21,7 +21,7 @@ $text-nav: (
 
 	@media screen and (max-width: $sm) {
 		padding-top: 10px;
-		height: $nav-height-mobile;
+		min-height: $nav-height-mobile;
 	}
 
 
