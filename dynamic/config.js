@@ -40,6 +40,7 @@ module.exports = function( express, app, config, schema, log ) {
         site_title: schema.name,
         site_description: schema.description,
         site_url: schema.home,
+        colors: config.frontend.colors,
         development: config.development || false,
         log: log,
         wp: cms( schema, config )

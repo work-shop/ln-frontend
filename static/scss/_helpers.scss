@@ -45,6 +45,13 @@
     }
 }
 
+.hidden-sm {
+    @media screen and (max-width: $sm) {
+        display: none;
+    }
+}
+
+
 .clearfix{
   &:before,
   &:after {

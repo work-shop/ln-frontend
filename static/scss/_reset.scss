@@ -31,7 +31,7 @@ body:before{
     background: $brand;
 }
 
-img,video,svg,iframe{
+video,svg,iframe{
 	width: 100%;
 	max-width: 100%;
 	height: auto;
@@ -40,8 +40,9 @@ img,video,svg,iframe{
 a{
 	color: $dark;
 	text-decoration: none;
+    cursor:pointer;
 	&:hover{
-		color:$dark;
+		color:$brand;
 		text-decoration: none;
 		outline: none;
 	}

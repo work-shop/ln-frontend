@@ -37,7 +37,7 @@
 		width: 30px;
 		top: 50%;
 		margin-top: -40px;
-	}	
+	}
 
 	&:hover{
 		cursor: pointer;
@@ -59,7 +59,7 @@
 			height: 80px;
 			line-height: 80px;
 			font-size: 33px;
-		}			
+		}
 	}
 
 	&.slick-next{
@@ -68,10 +68,10 @@
 
 		@media screen and (max-width: $md) {
 			right: 0;
-		}			
+		}
 
 		&:after{
-			content: '—';			
+			content: '—';
 		}
 
 	}
@@ -83,7 +83,7 @@
 	left: 50%;
 	@include transform(translate(-50%,0));
 	bottom: -30px;
-	
+
 	li{
 		display: inline-block;
 		margin-right: 10px;
@@ -99,7 +99,7 @@
 	button{
 		background: none;
 		border: none;
-		outline: none;	
+		outline: none;
 		font-size: 0;
 
 		display: block;
@@ -109,11 +109,11 @@
 
 		background: $light;
 		border: 1px solid $medium-dark;
-		border-radius: 10px;	
+		border-radius: 10px;
 
 		&:hover{
 			cursor: pointer;
-		}	
+		}
 
 	}
 }
