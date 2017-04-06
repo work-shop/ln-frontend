@@ -1,6 +1,5 @@
 "use strict";
 
-var util = require('util');
 var log = require('../logging/index.js')({stacktrace:true});
 var maybeFeaturedImage = require('../utilities/maybe-with-default.js')({'wp:featuredmedia':[]})
 
@@ -20,6 +19,7 @@ module.exports = function ( thought ) {
             summary: thought.acf.summary,
             metadata: thought.acf.metadata,
             overview: thought.acf.overview,
+            resources: thought.acf.resources,
             format: thought.acf.format,
             sections: thought.acf.sections,
             featured_image: maybeFeaturedImage( thought._embedded )['wp:featuredmedia'][0]

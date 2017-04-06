@@ -4,34 +4,51 @@
 {% import 'partials/thought/thought-context.html' as c %}
 {% import 'partials/thought/thought-conversational-insight.html' as conversational %}
 {% import 'partials/thought/thought-academic-insight.html' as academic %}
+{% import 'partials/thought/thought-presentation-insight.html' as presentation %}
 
 {% block definitions %} {% endblock %}
 {% block body_classes %} page-thought {% endblock %}
 {% block body_color %} {{ item.color }} {% endblock %}
 
-
 {% block content %}
 
     {{ h.section( item ) }}
-    {{ c.section( item ) }}
-
-    {% set padding = 0 %}
-    {% for object in item.sections %}
+    {# {{ c.section( item ) }} #}
 
         {% if item.format == "academic" %}
 
-            {{ academic.section( object, item ) }}
+            {% for object in item.sections %}
+
+                {{ academic.section( object, item ) }}
+
+            {% endfor %}
 
         {% elseif item.format == "conversational" %}
 
-            {{ conversational.section( object, item, padding ) }}
+            {% set padding = 0 %}
+
+            {% for object in item.sections %}
+
+                {{ conversational.section( object, item, padding ) }}
+
+                {% if object.image %}{% set padding = padding + 1 %}{% endif %}
+
+            {% endfor %}
+
+        {% elseif item.format == "presentation" %}
+
+            <section class="slick-presentation container mb4">
+
+            {% for object in item.sections %}
+
+                    {{ presentation.section( object, item ) }}
+
+            {% endfor %}
+
+            </section>
 
         {% else %}
 
         {% endif %}
-
-        {% if object.image %}{% set padding = padding + 1 %}{% endif %}
-
-    {% endfor %}
 
 {% endblock %}

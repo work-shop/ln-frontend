@@ -21,6 +21,13 @@ module.exports = function($, slick) {
 			speed: 3000
 		});
 
+        $('.slick-presentation').slick({
+            fade: true,
+            arrows:true,
+			dots: false,
+			autoplay: false,
+		});
+
 		$('.slick-thought').slick({
 			dots: true,
 			arrows: true,
