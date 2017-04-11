@@ -51,6 +51,33 @@
     }
 }
 
+.block-xs {
+    @media screen and (max-width: $xs) {
+        display: block;
+    }
+}
+
+.block-sm {
+    @media screen and (max-width: $sm) and (min-width: $xs) {
+        display: block;
+    }
+}
+
+.block-md {
+    @media screen and (max-width: $md) and (min-width: $sm) {
+        display: block;
+    }
+}
+
+.opacity-50 {
+    opacity: .5;
+}
+
+.centered-xs {
+    @media screen and (max-width: $xs) {
+        text-align: center;
+    }
+}
 
 .clearfix{
   &:before,

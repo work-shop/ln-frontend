@@ -1,12 +1,27 @@
 <nav class="container">
     <ul class="header-left-block row">
-        <li class="col-xs-4 uppercase"><a class="hover-page-color bold" href="/">L<span class="hidden-xs bold">awrence </span>N<span class="hidden-xs bold">eeley</span></a></li>
+        <li class="offset-xs-1 col-xs-10 uppercase centered-xs">
+            <a class="hover-page-color bold academic" href="/">L<span class="academic hidden-xs bold">awrence </span>N<span class="academic hidden-xs bold">eeley</span></a>
+            <span class="light pl1 pr1">|</span>
+            <a class="{% if page == "about" %}page-color bold{% else %}hover-page-color{% endif %}" href="/about">About</a>
+            <span class="light pl1 pr1">|</span>
+            <a class="{% if page == "thoughts" %}page-color bold{% elseif page == "thought" %}page-color opacity-50{% else %}hover-page-color{% endif %}" href="/thoughts">Thoughts</a>
+            {% if page == "thought" %}
+                <span class="light pl1 pr1 hidden-xs hidden-sm">/</span>
+                <a class="page-color bold mb1 block-md hidden-sm hidden-xs" href="{{ item.url }}">{{ item.title.short|safe }}</a>
+            {% endif %}
+        </li>
+    </ul>
+
+    <ul class="header-left-block row hidden">
+        <li class="col-xs-4 uppercase"><a class="hover-page-color bold academic" href="/">L<span class="academic hidden-xs bold">awrence </span>N<span class="academic hidden-xs bold">eeley</span></a></li>
+        <li class="offset-xs-0 col-xs-4 col-sm-2 uppercase righted"><a class="hover-page-color {% if page == "thoughts" %}page-color bold{% endif %}" href="/thoughts">Thoughts</a></li>
 
         {% if item %}
-            <li class="col-md-4 centered hidden-sm"><a class="hover-page-color mb1" href="/">{{ item.title.short|safe }}</a></li>
+            <li class="col-md-4 centered hidden-sm"><a class="page-color mb1" href="/">{{ item.title.short|safe }}</a></li>
         {% endif %}
 
-        <li class="offset-xs-0 offset-sm-4 offset-md-0 col-xs-4 col-sm-2 {% if !item %}offset-md-4{% endif %} uppercase righted"><a class="hover-page-color {% if page == "thoughts" %}page-color bold{% endif %}" href="/thoughts">Thoughts</a></li>
         <li class="col-xs-4 col-sm-2 uppercase righted"><a class="hover-page-color {% if page == "about" %}page-color bold{% endif %}" href="/about">About</a></li>
+
     </ul>
 </nav>
